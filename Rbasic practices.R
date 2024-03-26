@@ -3,8 +3,8 @@ library(readxl)
 library(googlesheets4)
 
 getwd()
-"C:\\Users\\medda\\OneDrive\\Belgeler\\datasets\\cereal.csv"
-data <- read_csv("C:\\Users\\medda\\OneDrive\\Belgeler\\datasets\\cereal.csv")
+"C:\path..cereal.csv"
+data <- read_csv("C:\path..cereal.csv")
 
 
 #CSV dosyasını okutuyorum
@@ -184,7 +184,5 @@ best_rated_cereals <- data %>%
 
 head(best_rated_cereals)
 
-#Yine detaylı bir şekilde eklememi istediğiniz fonksiyonlar
-#varsa ekstra tekrar yazarak gönderebilirim hocam dataframeler ile
-#işlem yaparak gerçek veri üzerinden pratik yapmayı hedefledim.
+
 
