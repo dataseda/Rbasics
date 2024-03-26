@@ -7,23 +7,23 @@ getwd()
 data <- read_csv("C:\path..cereal.csv")
 
 
-#CSV dosyasını okutuyorum
+#reading csv file
 data <- read.csv("cereal.csv")
 data
 
-#ilk 6 satırlık veri özetlemesi
+#first 6 rows of data
 head(data)
 
-#sütun isimlerini sıralıyorum
+#column names
 colnames(data)
 
-#çalışacağım verilerin kısa bir özetini görüntülüyorum
+#a short brief of data
 summary(data)
 
 
 -----------
 #first steps with r
-#değişken tanımlama yapılırken = ya da <- işaretlerinden faydalanır
+#defining variables, either = or <- symbols are used
 
 a <- 59
 a
@@ -33,45 +33,44 @@ a
 
 b = 20
 
-#değikenler üzerinden matematiksel hesaplamalar yapabiliriz
+#we can make calculations on variables
 sqrt(b) * a
 
 sum.ab <- a+b
 sum.ab
-------------------------------#vektörler----------------------
-#tanımladığımız tek bir nümerik, karakter ya da mantıksal tek elemanlı ve tek boyutlu vektörler oluşturur.
-#r'da vektörler c() içerisinde virgülle ayrılmış bir şekilde gösterilir.
+------------------------------#vectors----------------------
+#we create single numeric, character, or logical element, single-dimensional vectors when defining.
+#in R, vectors are represented by comma-separated values inside c().
 
 x <- c(10,11,12,15,22)
 x
 
-length(x) #x bir nümerik vektördür ve bu şekilde kaç elemanlı olduğunu görüntüleyebilirim
-sort(x) # küçükten büyüğe sıralama
-rev(sort(x)) #büyükten küçüğe sıralama
-sum(x) #vektör elemanlarının toplamı
+length(x) #x is a numeric vector, and I can display its length this way
+sort(x) # sorting ascending
+rev(sort(x)) #sorting descending
+sum(x) #sum of vectors
 
 y <- c(1,4,2,8,3)
 
-sum(x) - sum(y) # vektör elemanlarının toplamlarının birbirinden çıkarılması
+sum(x) - sum(y) # substraction of vectors
 
-x - 2 # her bir değerden belirli sayı çıkarılması gibi pek çok işlem yapabiliriz
+x - 2 # We can perform many operations such as subtracting a certain number from each value
 
-#faktörler vektörlerin özel biçimidir bir değişkene yönelik verileri depolamak için kullanılır
+#Factors are a special form of vectors used to store data for a variable.
 
 
 #factor(x, levels=c(), labels=c(), ordered= F,...)
-#gelir değişkeni içerisinde hem gelir düzeylerini nümerik olarak gösterip, hem bir kategori
-#tanımlayıp hem de sıralama işlemi yapabiliyoruz
+#We can represent income levels numerically within the income variable, define a category, and perform sorting operations
 
 
 y <- c(1,2,3,2,2,2)
 gelir <- factor(y, levels= 1:3, labels = c("Düşük", "Orta","Yüksek"), ordered = T)
 
-#dataframe yapısı
+#dataframe
 
 str(data)
 
-dim(data) #verisetinin büyüklüğünü görmek için
+dim(data) #checking the size
 
 names(data)
 
@@ -79,27 +78,27 @@ head(data, 2)
 
 library(dplyr)
 
-# Örnek bir dataframe oluşturma
+# making dataframe
 df <- data.frame(
   id = c(1, 2, 3),
   name = c("A", "B", "C"),
   age = c(25, 30, 35)
 )
 
-# Filtreleme için pipes kullanımı
+# filtering with pipes
 df_filtered <- df %>%
   filter(age > 25) %>%
   select(name, age)
 print(df_filtered)
 
-#dataframe oluşturma
+--#making dataframe
 
 dfyeni <- data.frame(a = 1:4, b = letters[1:4])
 dfyeni
 
 
 -------------------------------------------------------------
-#sadece belirli bir kolonu seçme işlemi
+#choosing one column
   
 protein_column <- select(data, protein)
 
@@ -107,6 +106,7 @@ print(protein_column)
 summary(protein_column)
 ------------------------------------------------
 
+#filtering
 
 library(dplyr)
 
@@ -144,7 +144,7 @@ head(ordered_data)
 
 ------------------------
   
-#yeni bir sütun ekleyerek kategorilendirme yapıyorum
+#yadding new column and variables
   library(dplyr)
 
 data <- data %>%
